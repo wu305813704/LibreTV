@@ -469,7 +469,7 @@ async function handleMultipleCustomSearch(searchQuery, customApiUrls) {
 
             // 使用Promise.race添加超时处理
             const timeoutPromise = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error(`自定义API ${index+1} 搜索超时`)), 8000)
+                setTimeout(() => reject(new Error(`自定义API ${index + 1} 搜索超时`)), 8000)
             );
 
             const fetchPromise = fetch(PROXY_URL + encodeURIComponent(fullUrl), {
@@ -479,26 +479,26 @@ async function handleMultipleCustomSearch(searchQuery, customApiUrls) {
             const response = await Promise.race([fetchPromise, timeoutPromise]);
 
             if (!response.ok) {
-                throw new Error(`自定义API ${index+1} 请求失败: ${response.status}`);
+                throw new Error(`自定义API ${index + 1} 请求失败: ${response.status}`);
             }
 
             const data = await response.json();
 
             if (!data || !Array.isArray(data.list)) {
-                throw new Error(`自定义API ${index+1} 返回的数据格式无效`);
+                throw new Error(`自定义API ${index + 1} 返回的数据格式无效`);
             }
 
             // 为搜索结果添加源信息
             const results = data.list.map(item => ({
                 ...item,
-                source_name: `${CUSTOM_API_CONFIG.namePrefix}${index+1}`,
+                source_name: `${CUSTOM_API_CONFIG.namePrefix}${index + 1}`,
                 source_code: 'custom',
                 api_url: apiUrl // 保存API URL以便详情获取
             }));
 
             return results;
         } catch (error) {
-            console.warn(`自定义API ${index+1} 搜索失败:`, error);
+            console.warn(`自定义API ${index + 1} 搜索失败:`, error);
             return []; // 返回空数组表示该源搜索失败
         }
     });
@@ -551,10 +551,10 @@ async function handleMultipleCustomSearch(searchQuery, customApiUrls) {
 }
 
 // 拦截API请求
-(function() {
+(function () {
     const originalFetch = window.fetch;
 
-    window.fetch = async function(input, init) {
+    window.fetch = async function (input, init) {
         const requestUrl = typeof input === 'string' ? new URL(input, window.location.origin) : input.url;
 
         if (requestUrl.pathname.startsWith('/api/')) {

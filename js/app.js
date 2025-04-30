@@ -12,7 +12,7 @@ let currentVideoTitle = '';
 let episodesReversed = false;
 
 // 页面初始化
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 初始化API复选框
     initAPICheckboxes();
 
@@ -91,7 +91,7 @@ function initAPICheckboxes() {
         container.appendChild(checkbox);
 
         // 添加事件监听器
-        checkbox.querySelector('input').addEventListener('change', function() {
+        checkbox.querySelector('input').addEventListener('change', function () {
             updateSelectedAPIs();
             checkAdultAPIsSelected();
         });
@@ -128,7 +128,7 @@ function initAPICheckboxes() {
             container.appendChild(checkbox);
 
             // 添加事件监听器
-            checkbox.querySelector('input').addEventListener('change', function() {
+            checkbox.querySelector('input').addEventListener('change', function () {
                 updateSelectedAPIs();
                 checkAdultAPIsSelected();
             });
@@ -232,7 +232,7 @@ function renderCustomAPIsList() {
         container.appendChild(apiItem);
 
         // 添加事件监听器
-        apiItem.querySelector('input').addEventListener('change', function() {
+        apiItem.querySelector('input').addEventListener('change', function () {
             updateSelectedAPIs();
             checkAdultAPIsSelected();
         });
@@ -297,7 +297,7 @@ function updateCustomApi(index) {
     }
 
     // 更新API信息
-    customAPIs[index] = { name, url, isAdult };
+    customAPIs[index] = {name, url, isAdult};
     localStorage.setItem('customAPIs', JSON.stringify(customAPIs));
 
     // 重新渲染自定义API列表
@@ -439,7 +439,7 @@ function addCustomApi() {
     }
 
     // 添加到自定义API列表 - 增加isAdult属性
-    customAPIs.push({ name, url, isAdult });
+    customAPIs.push({name, url, isAdult});
     localStorage.setItem('customAPIs', JSON.stringify(customAPIs));
 
     // 默认选中新添加的API
@@ -507,14 +507,14 @@ function removeCustomApi(index) {
 // 设置事件监听器
 function setupEventListeners() {
     // 回车搜索
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    document.getElementById('searchInput').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             search();
         }
     });
 
     // 点击外部关闭设置面板
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const panel = document.getElementById('settingsPanel');
         const settingsButton = document.querySelector('button[onclick="toggleSettings(event)"]');
 
@@ -526,7 +526,7 @@ function setupEventListeners() {
     // 黄色内容过滤开关事件绑定
     const yellowFilterToggle = document.getElementById('yellowFilterToggle');
     if (yellowFilterToggle) {
-        yellowFilterToggle.addEventListener('change', function(e) {
+        yellowFilterToggle.addEventListener('change', function (e) {
             localStorage.setItem('yellowFilterEnabled', e.target.checked);
         });
     }
@@ -534,7 +534,7 @@ function setupEventListeners() {
     // 广告过滤开关事件绑定
     const adFilterToggle = document.getElementById('adFilterToggle');
     if (adFilterToggle) {
-        adFilterToggle.addEventListener('change', function(e) {
+        adFilterToggle.addEventListener('change', function (e) {
             localStorage.setItem(PLAYER_CONFIG.adFilteringStorage, e.target.checked);
         });
     }
@@ -704,7 +704,7 @@ async function search() {
         // 处理搜索结果过滤：如果启用了黄色内容过滤，则过滤掉分类含有敏感内容的项目
         const yellowFilterEnabled = localStorage.getItem('yellowFilterEnabled') === 'true';
         if (yellowFilterEnabled) {
-            const banned = ['伦理片','门事件','萝莉少女','制服诱惑','国产传媒','cosplay','黑丝诱惑','无码','日本无码','有码','日本有码','SWAG','网红主播', '色情片','同性片','福利视频','福利片'];
+            const banned = ['伦理片', '门事件', '萝莉少女', '制服诱惑', '国产传媒', 'cosplay', '黑丝诱惑', '无码', '日本无码', '有码', '日本有码', 'SWAG', '网红主播', '色情片', '同性片', '福利视频', '福利片'];
             allResults = allResults.filter(item => {
                 const typeName = item.type_name || '';
                 return !banned.some(keyword => typeName.includes(keyword));

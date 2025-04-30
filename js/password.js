@@ -23,7 +23,7 @@ function isPasswordVerified() {
         }
 
         const verificationData = JSON.parse(localStorage.getItem(PASSWORD_CONFIG.localStorageKey) || '{}');
-        const { verified, timestamp, passwordHash } = verificationData;
+        const {verified, timestamp, passwordHash} = verificationData;
 
         // 获取当前环境中的密码哈希
         const currentHash = window.__ENV__ && window.__ENV__.PASSWORD;
@@ -174,7 +174,7 @@ function initPasswordProtection() {
         // 设置密码输入框回车键监听
         const passwordInput = document.getElementById('passwordInput');
         if (passwordInput) {
-            passwordInput.addEventListener('keypress', function(e) {
+            passwordInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     handlePasswordSubmit();
                 }
