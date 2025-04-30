@@ -1005,11 +1005,17 @@ function toggleEpisodeOrder(sourceCode) {
 function showProxyUrlModal() {
     const proxyUrlModal = document.getElementById('proxyUrlModal');
     if (proxyUrlModal) {
+        // 设置当前代理URL到输入框
+        const proxyUrlInput = document.getElementById('proxyUrlInput');
+        if (proxyUrlInput) {
+            // 从全局变量或localStorage获取当前值
+            proxyUrlInput.value = PROXY_URL || localStorage.getItem('PROXY_URL') || '';
+        }
+        
         proxyUrlModal.style.display = 'flex';
 
         // 确保输入框获取焦点
         setTimeout(() => {
-            const proxyUrlInput = document.getElementById('proxyUrlInput');
             if (proxyUrlInput) {
                 proxyUrlInput.focus();
             }

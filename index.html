@@ -78,6 +78,12 @@
         <button onclick="toggleSettings()" class="text-gray-400 hover:text-white" aria-label="关闭设置">&times;</button>
     </div>
     <div class="space-y-5">
+        <!-- 代理设置按钮 - 新增 -->
+        <div class="p-3 bg-[#151515] rounded-lg shadow-inner">
+            <label class="block text-sm font-medium text-gray-400 mb-3 border-b border-[#333] pb-1">代理设置</label>
+            <button onclick="showProxyUrlModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">修改代理URL</button>
+        </div>
+        
         <!-- 数据源设置区域 -->
         <div class="p-3 bg-[#151515] rounded-lg shadow-inner">
             <label class="block text-sm font-medium text-gray-400 mb-3 border-b border-[#333] pb-1">数据源设置</label>
