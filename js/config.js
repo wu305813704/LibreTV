@@ -1,5 +1,5 @@
 // 全局常量配置
-const PROXY_URL = '/proxy/';    // 适用于 Cloudflare, Netlify (带重写), Vercel (带重写)
+let PROXY_URL = '/proxy/';    // 适用于 Cloudflare, Netlify (带重写), Vercel (带重写)
 // const HOPLAYER_URL = 'https://hoplayer.com/index.html';
 const SEARCH_HISTORY_KEY = 'videoSearchHistory';
 const MAX_HISTORY_ITEMS = 5;
@@ -122,8 +122,113 @@ const API_SITES = {
         api: 'https://yutuzy10.com',
         name: '玉兔资源',
         adult: true
+    },
+    // 新增可访问的资源站
+    huaweiba2: {
+        name: '华为吧资源',
+        api: 'https://huaweiba.live',
+        adult: false
+    },
+    shan04: {
+        name: '闪电资源',
+        api: 'http://shan04.com',
+        adult: false
+    },
+    yhzy: {
+        name: '樱花资源',
+        api: 'https://yhzy.cc',
+        adult: false
+    },
+    bdzy2: {
+        name: '百度资源',
+        api: 'http://bdzy.com',
+        adult: false
+    },
+    wujin: {
+        name: '无尽资源',
+        api: 'https://www.wujinzy.com',
+        adult: false
+    },
+    kudian: {
+        name: '酷点资网',
+        api: 'https://www.kudian20.com',
+        adult: false
+    },
+    hongniu: {
+        name: '红牛资源',
+        api: 'https://www.hongniuziyuan.com',
+        adult: false
+    },
+    yparse: {
+        name: '云解析资源',
+        api: 'https://www.yparse.com',
+        adult: false
+    },
+    vipmv2: {
+        name: '天堂官方资源',
+        api: 'http://vipmv.cc',
+        adult: false
+    },
+    xinlang: {
+        name: '新浪资源',
+        api: 'https://xinlangzy.com',
+        adult: false
+    },
+    guangsu: {
+        name: '光速影视资源',
+        api: 'https://guangsuzy.com',
+        adult: false
+    },
+    aosika: {
+        name: '奥斯卡资源',
+        api: 'https://aosikazy.com',
+        adult: false
+    },
+    kuaiche: {
+        name: '快车资源',
+        api: 'https://www.kuaichezy.com',
+        adult: false
+    },
+    taopian: {
+        name: '淘片资源',
+        api: 'https://www.taopianzy.com',
+        adult: false
+    },
+    lzizy: {
+        name: '量子资源',
+        api: 'http://lzizy.net',
+        adult: false
+    },
+    nxflv: {
+        name: '诺讯资源',
+        api: 'https://caiji.nxflv.com',
+        adult: false
+    },
+    qilin: {
+        name: '麒麟资源',
+        api: 'https://www.qilinzyz.com',
+        adult: false
+    },
+    ikun: {
+        name: 'ikun资源',
+        api: 'https://www.ikunzy.com',
+        adult: false
+    },
+    uku: {
+        name: 'U酷资源',
+        api: 'https://ukuzy.com',
+        adult: false
+    },
+    ffzy2: {
+        name: '非凡资源',
+        api: 'http://ffzy.tv',
+        adult: false
+    },
+    siwziyw: {
+        name: '丝袜资源',
+        api: 'https://siwazyw.tv',
+        adult: true
     }
-    // 您可以按需添加更多源
 };
 
 // 添加聚合搜索的配置选项
@@ -204,4 +309,4 @@ const CUSTOM_API_CONFIG = {
 };
 
 // 新增隐藏内置黄色采集站API的变量，默认为true
-const HIDE_BUILTIN_ADULT_APIS = true;
+const HIDE_BUILTIN_ADULT_APIS = false;
