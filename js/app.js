@@ -1086,6 +1086,23 @@ function initProxyUrl() {
     }
 }
 
+// Web App 模式增强支持
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+      console.log('Service Worker registration failed:', error);
+    });
+  });
+}
+
+// 强制所有链接在当前上下文中打开
+document.addEventListener('click', function (e) {
+  if (e.target.tagName === 'A' && e.target.href.startsWith(window.location.origin)) {
+    e.preventDefault();
+    window.location.href = e.target.href;
+  }
+});
+
 // app.js 或路由文件中
 const authMiddleware = require('./middleware/auth');
 const config = require('./config');
