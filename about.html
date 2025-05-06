@@ -43,5 +43,18 @@
 			<a href="index.html" class="text-gray-400 hover:text-white transition-colors">回到首页</a>
 		</footer>
 	</div>
+	<script>
+	  document.addEventListener('DOMContentLoaded', function() {
+	    const links = document.querySelectorAll('a');
+	    links.forEach(link => {
+	      if (link.hostname === window.location.hostname) {
+	        link.addEventListener('click', function(e) {
+	          e.preventDefault();
+	          window.location.href = this.href;
+	        });
+	      }
+	    });
+	  });
+	</script>
 </body>
 </html>

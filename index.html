@@ -458,5 +458,18 @@
         </div>
     </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.location.href = this.href;
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>

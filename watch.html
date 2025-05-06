@@ -9,4 +9,17 @@
 <body>
     <p>如果您没有被自动重定向，请<a href="player.html">点击这里</a>前往播放页面。</p>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.location.href = this.href;
+        });
+      }
+    });
+  });
+</script>
 </html>
